@@ -1,0 +1,21 @@
+{
+  "name": "stylus-setup",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.8.0",
+    "bootstrap-styl": "^4.0.5",
+    "gulp": "^3.9.0",
+    "gulp-coffee": "^2.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.1.0",
+    "gulp-uglify": "^1.4.2",
+    "gulp-util": "^3.0.7",
+    "gulp.spritesmith": "^4.1.1",
+    "nib": "^1.1.0",
+    "run-sequence": "^1.1.4"
+  }
+}

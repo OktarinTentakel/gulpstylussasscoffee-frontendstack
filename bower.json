@@ -1,0 +1,9 @@
+{
+  "name": "stylus-setup",
+  "version": "1.0.0",
+  "private": "true",
+  "dependencies": {
+    "jqueryannex": "0.21.0-alpha.4",
+    "lodash": "~3.10.1"
+  }
+}

@@ -1,0 +1,29 @@
+ul
+    make-row()
+
+    li
+        make-xs-column(3)
+
+        /*width 100px !important
+        height 100px !important*/
+
+        transform scale(0.5)
+
+        border 5px solid green
+        border-radius bottom 10px
+
+        user-select none
+
+        &.heman
+            sprite($sprite_heman)
+
+        &.cleaninglady
+            sprite($sprite_cleaninglady)
+
+
+
+.button
+    @extend .btn
+
+    &.success
+        @extend .btn-success

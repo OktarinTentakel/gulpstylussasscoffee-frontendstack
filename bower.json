@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": "true",
   "dependencies": {
-    "jqueryannex": "0.21.0-alpha.4",
+    "jqueryannex": "0.21.0-alpha.5",
     "lodash": "~3.10.1"
   }
 }

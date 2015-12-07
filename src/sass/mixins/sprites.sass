@@ -1,0 +1,114 @@
+/*
+  SASS variables are information about icon's compiled state, stored under its original file name
+
+  .icon-home
+    width: $icon-home-width
+
+  The large array-like variables contain all information about a single icon
+  $icon-home: x y offset_x offset_y width height total_width total_height image_path
+
+  At the bottom of this section, we provide information about the spritesheet itself
+  $spritesheet: width height image $spritesheet-sprites
+  */
+$sprite-ape-name: 'sprite-ape'
+$sprite-ape-x: 1218px
+$sprite-ape-y: 0px
+$sprite-ape-offset-x: -1218px
+$sprite-ape-offset-y: 0px
+$sprite-ape-width: 384px
+$sprite-ape-height: 516px
+$sprite-ape-total-width: 1602px
+$sprite-ape-total-height: 891px
+$sprite-ape-image: '../img/sprites/sprite.png'
+$sprite-ape: (1218px, 0px, -1218px, 0px, 384px, 516px, 1602px, 891px, '../img/sprites/sprite.png', 'sprite-ape', )
+$sprite-bateman-name: 'sprite-bateman'
+$sprite-bateman-x: 643px
+$sprite-bateman-y: 474px
+$sprite-bateman-offset-x: -643px
+$sprite-bateman-offset-y: -474px
+$sprite-bateman-width: 244px
+$sprite-bateman-height: 207px
+$sprite-bateman-total-width: 1602px
+$sprite-bateman-total-height: 891px
+$sprite-bateman-image: '../img/sprites/sprite.png'
+$sprite-bateman: (643px, 474px, -643px, -474px, 244px, 207px, 1602px, 891px, '../img/sprites/sprite.png', 'sprite-bateman', )
+$sprite-cleaninglady-name: 'sprite-cleaninglady'
+$sprite-cleaninglady-x: 0px
+$sprite-cleaninglady-y: 0px
+$sprite-cleaninglady-offset-x: 0px
+$sprite-cleaninglady-offset-y: 0px
+$sprite-cleaninglady-width: 643px
+$sprite-cleaninglady-height: 891px
+$sprite-cleaninglady-total-width: 1602px
+$sprite-cleaninglady-total-height: 891px
+$sprite-cleaninglady-image: '../img/sprites/sprite.png'
+$sprite-cleaninglady: (0px, 0px, 0px, 0px, 643px, 891px, 1602px, 891px, '../img/sprites/sprite.png', 'sprite-cleaninglady', )
+$sprite-heman-name: 'sprite-heman'
+$sprite-heman-x: 643px
+$sprite-heman-y: 0px
+$sprite-heman-offset-x: -643px
+$sprite-heman-offset-y: 0px
+$sprite-heman-width: 575px
+$sprite-heman-height: 474px
+$sprite-heman-total-width: 1602px
+$sprite-heman-total-height: 891px
+$sprite-heman-image: '../img/sprites/sprite.png'
+$sprite-heman: (643px, 0px, -643px, 0px, 575px, 474px, 1602px, 891px, '../img/sprites/sprite.png', 'sprite-heman', )
+$sprite-spongebob-name: 'sprite-spongebob'
+$sprite-spongebob-x: 1218px
+$sprite-spongebob-y: 516px
+$sprite-spongebob-offset-x: -1218px
+$sprite-spongebob-offset-y: -516px
+$sprite-spongebob-width: 380px
+$sprite-spongebob-height: 347px
+$sprite-spongebob-total-width: 1602px
+$sprite-spongebob-total-height: 891px
+$sprite-spongebob-image: '../img/sprites/sprite.png'
+$sprite-spongebob: (1218px, 516px, -1218px, -516px, 380px, 347px, 1602px, 891px, '../img/sprites/sprite.png', 'sprite-spongebob', )
+$spritesheet-width: 1602px
+$spritesheet-height: 891px
+$spritesheet-image: '../img/sprites/sprite.png'
+$spritesheet-sprites: ($sprite-ape, $sprite-bateman, $sprite-cleaninglady, $sprite-heman, $sprite-spongebob, )
+$spritesheet: (1602px, 891px, '../img/sprites/sprite.png', $spritesheet-sprites, )
+
+/*
+  The provided mixins are intended to be used with the array-like variables
+
+  .icon-home
+    @include sprite-width($icon-home)
+
+  .icon-email
+    @include sprite($icon-email)
+  */
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+/*
+  The `sprites` mixin generates identical output to the CSS template
+    but can be overridden inside of SASS
+
+  @include sprites($spritesheet-sprites)
+  */
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)

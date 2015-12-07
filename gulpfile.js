@@ -97,6 +97,11 @@ gulp.task('stylus', function(){
             .pipe(stylus({
                 use : [nib(), bootstrapStylus(), autoprefixerStylus({browsers : ['last 2 versions', 'IE >= 10']})],
                 compress: true
+            }).on('error', function(err){
+                // log error but continue with the task flow anyway
+                // keeps watchers alive!
+                gutil.log(err);
+                this.emit('end');
             }))
             .pipe(rename('main-stylus.css'))
         .pipe(sourcemaps.write('./'))
@@ -132,6 +137,11 @@ gulp.task('sass', function(){
             .pipe(sass({
                 outputStyle: 'compressed',
                 includePaths: ['./bower_components/bootstrap-sass/assets/stylesheets']
+            }).on('error', function(err){
+                // log error but continue with the task flow anyway
+                // keeps watchers alive!
+                gutil.log(err);
+                this.emit('end');
             }))
             .pipe(autoprefixer({browsers : ['last 2 versions', 'IE >= 10']}))
             .pipe(rename('main-sass.css'))

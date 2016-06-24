@@ -1,0 +1,9 @@
+[user]
+    name = Sebastian Schlapkohl
+    email = devnull@ifschleife.de
+[core]
+    autocrlf = input
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
